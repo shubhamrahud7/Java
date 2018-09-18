@@ -1,0 +1,27 @@
+class SwitchWithNoDemo
+{
+public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+
+
+		switch(cond)
+		{
+			case 1:
+			{stmts;
+			break;
+			}
+			case 2:
+			{stmts;
+			break;
+			}
+			------
+			case n:
+			{stmts;
+			break;
+			}
+			default:
+				stmt;
+		}
+	}
+}

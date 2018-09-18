@@ -1,0 +1,318 @@
+import java.util.*;
+class ExceptionDemo
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter 2 no");
+int a=sc.nextInt();
+int b=sc.nextInt();
+int c=a/b;
+System.out.println("div="+c);
+System.out.println("welcome");
+System.out.println("this part exe if exception");
+System.out.println("if exception program treminated in mid only");
+}
+}	
+	
+
+Type of Exceptions
+
+1.ArithmeticException:
+ex:
+
+int c=a/b;
+
+2.ArrayIndexOutOfBoundsException
+
+int marks[]=new int[5];
+marks[25]=45;
+System.out.println(marks[2]);
+
+3.StringIndexOutOfBoundsException
+
+String s1="balu";
+char ch=s1.charAt(5);
+System.out.println(ch);
+
+4.ClassNotFoundException
+
+Class c=Class.forName("Test"); 
+
+5.InterruptedException
+Thread.sleep(4500);
+
+6.NoSuchMethodException
+static
+{
+	System.out.println("hai");
+}
+
+7.NullPointerException
+String s1=null;
+System.out.println(s1.replace("b","l"));
+
+
+8.InputMismatchException
+
+int b=sc.nextInt();    56.223
+
+9.FileNotFoundException
+
+FileReader fr=new FileReader("sai.txt");
+
+
+
+Exception handling:
+
+1.by useing try & multipul catch block
+
+try
+{
+stmts;
+}
+catch(Exception e1)
+{stmts;
+}
+catch(Exception e2)
+{stmts;
+}catch(Exception e3)
+{stmts;
+}catch(Exception e4)
+{stmts;
+}
+finally
+{
+}
+
+ex:
+try
+{
+int c=a/b;
+System.out.println("div="+c);
+}
+catch(NullPointerException ne)
+{	System.out.println(ne);
+}
+catch(ArrayIndexOutOfBoundsException balu)
+{	System.out.println(balu);
+}
+catch(ArithmeticException ae)
+{
+	System.out.println(ae);
+}
+
+
+2.try with finally:
+try
+{
+int c=a/b;
+System.out.println("div="+c);
+}
+catch(NullPointerException ne)
+{
+	System.out.println(ne);
+}
+catch(ArrayIndexOutOfBoundsException balu)
+{
+	System.out.println(balu);
+}
+finally
+{
+System.out.println("welcome");
+System.out.println("this part exe if exception");
+System.out.println("if exception program treminated in mid only");
+}
+
+3.By useing Exception Super class
+
+try
+{
+int c=a/b;
+System.out.println("div="+c);
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+
+Ex:
+
+try
+{
+marks[25]=45;
+System.out.println(marks[2]);
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+
+
+multiple Excption 
+try
+{
+int c=a/b;
+System.out.println("div="+c);
+}
+catch(Exception e)
+{e.printStackTrace();
+}
+try{
+marks[25]=45;
+System.out.println(marks[2]);
+}
+catch(Exception e)
+{e.printStackTrace();
+}
+
+nested try block:  jdk 1.6
+
+try
+{
+	try
+	{stmts;	}
+	catch()
+	{   }
+	try
+	{stmts;	}
+	catch()
+	{   }
+}
+catch()
+{	}
+
+
+try
+{	try{
+	marks[25]=45;
+	System.out.println(marks[2]);
+	}
+	catch(Exception e)
+	{e.printStackTrace();	}
+int c=a/b;
+System.out.println("div="+c);
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+
+Checked Exceptions
+try
+	{
+	Thread.sleep(2000);
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+sol2:
+by useing throws keyword:
+import java.util.*;
+class ExceptionDemo
+{
+public static void main(String args[])throws Exception
+{
+for(int i=1;i<=20;i++)
+{
+	System.out.println(i);
+	Thread.sleep(2000);
+}
+System.out.println("welcome");
+System.out.println("this part exe if exception");
+System.out.println("if exception program treminated in mid only");
+}
+}	
+
+
+Sol2:
+import java.util.*;
+class ExceptionDemo
+{
+	static void print()throws Exception
+	{
+	for(int i=1;i<=20;i++)
+	{
+	System.out.println(i);
+	Thread.sleep(2000);
+	}	
+	}
+public static void main(String args[])throws Exception
+{  print();
+System.out.println("welcome");
+System.out.println("this part exe if exception");
+System.out.println("if exception program treminated in mid only");
+}
+}	
+
+
+BufferedReader  class:
+  io
+s-I
+
+InputStreamReader isr=new InputStreamReader(System.in);
+
+s-II
+BufferedReader br=new BufferedReader(isr);
+
+
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+
+sol-I  try and catchBlock
+import java.io.*;
+class Exp2Demo
+{
+public static void main(String args[])
+{
+	try
+	{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("enter student name:");
+String sname=br.readLine();
+System.out.println("sname="+sname);
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+
+}
+
+}
+
+
+sol-II:
+throws Exception
+
+import java.io.*;
+class Exp2Demo
+{
+public static void main(String args[])throws Exception
+{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("enter student name:");
+String sname=br.readLine();
+System.out.println("sname="+sname);
+}
+}
+
+
+sol3:
+try with resourse stmt:
+
+Syntax:
+
+try(resourse)
+{
+stmts;
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+
+try(BufferedReader br=new BufferedReader(new InputStreamReader(System.in));)
+{
+stmt;

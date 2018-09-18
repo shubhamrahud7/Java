@@ -1,0 +1,273 @@
+Exception:
+1.ArithmeticException:
+int c=a/b;
+// when we enter b value as zero
+
+2.ArrayIndexOutOfBoundsException
+int marks[]=new int[5];
+marks[19]=55;
+System.out.println(marks[19]);
+
+3.StringIndexOutOfBoundsException
+String s1="naresh";
+System.out.println(s1.charAt(20));
+
+4.ClassNotFoundException
+Class c=Class.forName(args[0]);
+
+5.InterruptedException
+Thread.sleep(400);
+
+6.NoSuchMethodException
+static
+{
+System.out.println("ok");
+}
+
+7.NullPointerException
+String s1=null;
+s1.replace("na","su");
+
+8.InputMismatchException
+int n=sc.nextInt();
+// 34.67
+9.FileNotFoundException
+FileReader fr=new FileReader("balu.txt");
+
+
+
+
+1.try block
+2.catch block
+3.finally block
+
+try
+{stmts;}
+catch (Exception 1)
+{stmts;}
+catch (Exception 2)
+{stmts;}
+----------
+catch (Exception n)
+{stmts;}
+finally
+{ stmts;}
+
+
+
+import java.util.*;
+class ExceptionDemo
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter 2 no");
+int a=sc.nextInt();
+int b=sc.nextInt();
+int c=a/b;
+System.out.println("div value="+c);
+System.out.println("ok");
+System.out.println("this part exe if there is no exception");
+System.out.println("if exception is arrives ");
+System.out.println("program terminated from that line only");
+}
+}
+
+
+try
+{
+int c=a/b;
+System.out.println("div value="+c);
+}
+catch(ArrayIndexOutOfBoundsException balu)
+{	System.out.println(balu);
+}
+catch(NullPointerException ne)
+{	System.out.println(ne);
+}
+catch(ArithmeticException ae)
+{	System.out.println(ae);
+}
+
+M-II
+try
+{
+int c=a/b;
+System.out.println("div value="+c);
+}
+catch(Exception e)
+{
+e. printStackTrace();	
+}
+
+
+
+mul Exceptions:
+
+try
+{int c=a/b;
+System.out.println("div value="+c);
+}
+catch(Exception e)
+{
+e. printStackTrace();
+}
+
+int marks[]=new int[5];
+try{
+marks[19]=55;
+System.out.println(marks[19]);
+}
+catch(Exception e)
+{e. printStackTrace();
+	}
+String s1=null;
+try{
+s1.replace("na","su");
+}
+catch(Exception e)
+{
+e. printStackTrace();	
+}
+
+Syntax
+try
+{
+stmts;
+            	try
+	{ stmts}
+	catch(Exception e)
+	{stmts}
+            	try
+	{ stmts}
+	catch(Exception e)
+	{stmts}
+stmts;
+}
+catch(Exception e)
+{stmts}
+
+
+try
+{
+int marks[]=new int[5];
+		try{marks[19]=55;
+		System.out.println(marks[19]);
+		}
+		catch(Exception e)
+		{e. printStackTrace();}
+String s1=null;
+		try{s1.replace("na","su");}
+		catch(Exception e)
+		{e. printStackTrace();}
+int c=a/b;
+System.out.println("div value="+c);
+}
+catch(Exception e)
+{e. printStackTrace();}
+
+
+class Exception3Demo
+{
+public static void main(String args[])
+{
+for(int i=1;i<=85;i++)
+{System.out.println(i);
+try
+{Thread.sleep(2000);}
+catch(Exception e)
+{e. printStackTrace();}
+}
+}
+}
+
+
+
+class Exception3Demo
+{
+public static void main(String args[])throws Exception
+{
+for(int i=1;i<=85;i++)
+{
+System.out.println(i);
+Thread.sleep(2000);	
+}
+}
+}
+
+1.reading data throw Keybord:
+InputStreamReader isr=new InputStreamReader(System.in);
+2.Buffer
+BufferedReader br=new BufferedReader(isr);
+1&2
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+datatype		method name
+
+String		readLine()
+byte		Byte.pareseByte(br.readLine);
+short		Short.parseShort(br.readLine);
+int		Integer.parseInt(br.readLine);
+long		Long.parseLong(br.readLine);
+float		Float.parseFloat(br.readLine);
+double		Double.parseDouble(br.readLine);
+boolean		Boolean.parseBoolean(br.readLine);
+char		read();
+1.throws 
+
+import java.io.*;
+class BufferedReaderDemo
+{
+public static void main(String args[])throws Exception
+{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("enter empname=");
+String ename=br.readLine();
+System.out.println("entered empname="+ename);
+}
+}
+
+2.try & catch
+
+import java.io.*;
+class BufferedReaderDemo
+{
+public static void main(String args[])
+{
+try
+{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("enter empname=");
+String ename=br.readLine();
+System.out.println("entered empname="+ename);
+}
+catch(Exception e)
+{e. printStackTrace();}
+}
+}
+
+III:
+
+
+try(resource)
+{
+stmts;
+}
+catch(Exception e)
+{e. printStackTrace();}
+}
+import java.io.*;
+class BufferedReaderDemo
+{
+public static void main(String args[])
+{
+try(BufferedReader br=new BufferedReader(new InputStreamReader(System.in)))
+{
+System.out.println("enter empname=");
+String ename=br.readLine();
+System.out.println("entered empname="+ename);
+}
+catch(Exception e)
+{e. printStackTrace();}
+}
+}

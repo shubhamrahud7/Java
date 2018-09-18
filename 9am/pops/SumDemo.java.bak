@@ -1,0 +1,10 @@
+class SumDemo
+{
+ public static void main(String args[]) 
+	{
+    int x=90;
+	int y=10;
+	int z=x+y;
+	System.out.println("sum="+z);
+			}
+}

@@ -1,0 +1,28 @@
+import java.util.*;
+class SwitchWithCharDemo
+{
+public static void main(String[] args) 
+	{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter any char");
+char ch=sc.next().charAt(0);
+System.out.println(ch);
+switch(ch)
+{
+case 'm':
+case 'M':
+	{
+System.out.println("male");
+break;
+	}
+case 'f':
+case 'F':
+	{
+System.out.println("female");
+break;
+	}
+default:
+System.out.println("invalid gender");
+}
+	}
+}
